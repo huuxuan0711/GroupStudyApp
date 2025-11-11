@@ -48,4 +48,6 @@ Retrofit (API)
 
 Hilt (Dependency Injection)
 
+Cloudinary (lưu trữ ảnh và tệp)
+
 Firebase (Authentication, Realtime Database, Cloud Messaging)
