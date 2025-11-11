@@ -20,7 +20,7 @@ Progress: theo dõi tiến độ task và tổng quan nhóm.
 
 Quản lý task: milestone, task, deadline, phân công công việc.
 
-Chat nội bộ: trao đổi, bình luận task và cập nhật tiến độ.
+Chat nội bộ: ghi chú, bình luận và trao đổi giữa các thành viên.
 
 Calendar: quản lý timeline dự án, nhắc nhở deadline.
 
@@ -38,4 +38,4 @@ Retrofit (API)
 
 Hilt (Dependency Injection)
 
-Firebase (Authentication, Firestore, Cloud Messaging)
+Firebase (Authentication, Realtime Database, Cloud Messaging)
