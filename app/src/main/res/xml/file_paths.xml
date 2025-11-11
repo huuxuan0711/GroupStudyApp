@@ -1,0 +1,21 @@
+<paths>
+    <external-path
+        name="external_files"
+        path="." />
+
+    <cache-path
+        name="cache_files"
+        path="." />
+
+    <external-path
+        name="app_files"
+        path="Android/data/com.xmobile.project1groupstudyappnew/files/" />
+
+    <cache-path
+        name="shared_files"
+        path="." />
+
+    <files-path
+        name="shared_files"
+        path="." />
+</paths>

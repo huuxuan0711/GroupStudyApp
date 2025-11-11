@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="14dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?attr/colorCardView2"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_deadline_state"
+            app:tint="@color/green"
+            android:src="@drawable/ic_oval"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="15dp"
+            android:layout_height="15dp"/>
+
+        <TextView
+            android:id="@+id/deadline_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Tiêu đề"
+            android:textColor="?attr/colorText2"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/image_deadline_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_deadline_state"
+            app:layout_constraintTop_toTopOf="@id/image_deadline_state" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorText2"
+            android:text="@string/group2"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@id/deadline_title"
+            app:layout_constraintTop_toBottomOf="@id/deadline_title" />
+
+        <TextView
+            android:id="@+id/name"
+            android:text="tên nhóm/tên người"
+            android:textSize="22sp"
+            android:textColor="?attr/colorText2"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt1"
+            app:layout_constraintTop_toTopOf="@id/txt1" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/deadline"
+            android:textColor="?attr/colorBtn"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:layout_constraintTop_toBottomOf="@id/txt1" />
+
+        <TextView
+            android:id="@+id/task_deadline"
+            android:text="14:00"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/txt2"
+            app:layout_constraintTop_toTopOf="@id/txt2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

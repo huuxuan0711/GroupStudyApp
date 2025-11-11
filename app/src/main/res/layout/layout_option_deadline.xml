@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/layout_option_deadline"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:background="@drawable/bg_group"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_amount_of_time"
+        android:text="@string/select_amount_of_time"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_choose_day_hour"
+        android:text="@string/select_day_hour"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_choose_day"
+        android:text="@string/select_day"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

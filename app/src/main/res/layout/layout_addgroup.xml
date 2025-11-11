@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_add_group"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:background="@drawable/bg_addgroup">
+
+    <TextView
+        android:text="@string/add_group"
+        android:textColor="?attr/colorText2"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="@string/enter_group_name"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:textColorHint="@color/gray"
+        app:counterEnabled="true"
+        app:endIconMode="clear_text"
+        app:counterMaxLength="20"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNameGroup"
+            android:background="@drawable/bg_stroke_lightgray"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/checkName"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="@string/enter_group_description"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:textColorHint="@color/gray"
+        app:counterEnabled="true"
+        app:endIconMode="clear_text"
+        app:counterMaxLength="100"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtDescriptionGroup"
+            android:background="@drawable/bg_stroke_lightgray"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/checkDescription"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_marginStart="30dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioStudy"
+            android:checked="true"
+            android:textColor="?attr/colorText2"
+            android:text="@string/study"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/radioProject"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:text="@string/project"
+            android:textColor="?attr/colorText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:background="@color/light"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/txtCancel"
+            android:layout_weight="0.5"
+            android:text="@string/str_cancel"
+            android:textColor="?attr/colorText2"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <View
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/light"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/txtAddFolder"
+            android:layout_weight="0.5"
+            android:textColor="?attr/colorText2"
+            android:text="@string/create"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

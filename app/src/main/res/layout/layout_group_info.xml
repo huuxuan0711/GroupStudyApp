@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_join_group"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:paddingBottom="20dp"
+    android:background="@drawable/bg_addgroup">
+
+    <ImageView
+        android:id="@+id/imgClose"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_close"
+        app:tint="@color/blue"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/group_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/group_name"
+        android:text="Nguyễn Hữu Xuân"
+        app:layout_constraintTop_toBottomOf="@id/group_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:textColor="?attr/colorText2"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/group_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Study"
+        android:textColor="?attr/colorText2"
+        android:textSize="18sp"
+        android:layout_marginStart="-10dp"
+        app:layout_constraintStart_toStartOf="@id/group_name"
+        app:layout_constraintTop_toBottomOf="@id/group_name" />
+
+    <TextView
+        android:id="@+id/txt1"
+        android:text="  -  "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorText2"
+        app:layout_constraintStart_toEndOf="@id/group_category"
+        app:layout_constraintTop_toBottomOf="@id/group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/group_size"
+        android:text="20"
+        android:textSize="18sp"
+        android:textColor="?attr/colorText2"
+        app:layout_constraintStart_toEndOf="@id/txt1"
+        app:layout_constraintTop_toBottomOf="@id/group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorText2"
+        android:text="@string/members"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/group_size"
+        app:layout_constraintTop_toBottomOf="@id/group_name" />
+
+    <ImageView
+        android:src="@drawable/ic_member"
+        app:tint="@color/blue"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/txt2"
+        app:layout_constraintTop_toBottomOf="@id/group_name"
+        app:layout_constraintBottom_toBottomOf="@id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/group_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tao là bố của chúng mày"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/group_category" />
+
+    <TextView
+        android:id="@+id/btnJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_login"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/join_group"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/group_slogan" />
+</androidx.constraintlayout.widget.ConstraintLayout>

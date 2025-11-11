@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="14dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?attr/colorCardView2"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/group_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView2"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/group_name"
+            app:layout_constraintStart_toEndOf="@id/group_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Hương Ngải"
+            android:textColor="?attr/colorText2"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:layout_marginStart="14dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/group_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorText2"
+            android:text="@string/Study"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/group_name"
+            app:layout_constraintTop_toBottomOf="@id/group_name" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:text="  -  "
+            android:textSize="20sp"
+            android:textColor="?attr/colorText2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/group_category"
+            app:layout_constraintTop_toBottomOf="@id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/group_size"
+            android:text="20"
+            android:textSize="20sp"
+            android:textColor="?attr/colorText2"
+            app:layout_constraintStart_toEndOf="@id/txt1"
+            app:layout_constraintTop_toBottomOf="@id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorText2"
+            android:text="@string/members"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/group_size"
+            app:layout_constraintTop_toBottomOf="@id/group_name" />
+
+        <ImageView
+            android:src="@drawable/ic_member"
+            app:tint="?attr/colorBtn"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/txt2"
+            app:layout_constraintTop_toBottomOf="@id/group_name"
+            app:layout_constraintBottom_toBottomOf="@id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutNewInfo"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/group_category"
+            app:layout_constraintStart_toStartOf="@id/group_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:src="@drawable/ic_oval"
+                app:tint="?attr/colorBtn"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="3dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:id="@+id/group_new_info"
+                android:text="1 buổi học hôm nay"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                android:textColor="?attr/colorBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

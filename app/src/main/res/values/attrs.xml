@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorBackground" format="color" />
+    <attr name="colorBackground2" format="color" />
+    <attr name="colorBtn" format="color" />
+    <attr name="colorRoundBtn" format="color" />
+    <attr name="colorRoundBtn2" format="color" />
+    <attr name="colorTitle" format="color" />
+    <attr name="colorTitle2" format="color" />
+    <attr name="colorBgSearch" format="color" />
+    <attr name="colorBgSearch2" format="color" />
+    <attr name="colorComponentSearch" format="color"/>
+    <attr name="colorDeleteSearch" format="color"/>
+    <attr name="colorText" format="color"/>
+    <attr name="colorText2" format="color"/>
+    <attr name="colorText3" format="color"/>
+    <attr name="colorText4" format="color"/>
+    <attr name="colorTextHint" format="color"/>
+    <attr name="colorTextHint2" format="color"/>
+    <attr name="colorTextDate" format="color"/>
+    <attr name="colorCardView" format="color"/>
+    <attr name="colorCardView2" format="color"/>
+    <attr name="colorCardView3" format="color"/>
+    <attr name="colorCardView4" format="color"/>
+    <attr name="colorCardView5" format="color"/>
+
+
+</resources>

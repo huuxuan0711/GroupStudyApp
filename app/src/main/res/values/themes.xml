@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Project1GroupStudyAppNew" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorBackground">@color/coolGray</item>
+        <item name="colorBackground2">@color/lightGray</item>
+        <item name="colorBtn">@color/indigoBlue</item>
+        <item name="colorRoundBtn">@color/pale_darkBlue</item>
+        <item name="colorRoundBtn2">@color/indigoBlue</item>
+        <item name="colorTitle">@color/indigoBlue</item>
+        <item name="colorTitle2">@color/gray</item>
+        <item name="colorBgSearch">#E4E3E8</item>
+        <item name="colorBgSearch2">#E4E3E8</item>
+        <item name="colorComponentSearch">@color/gray</item>
+        <item name="colorDeleteSearch">@color/gray</item>
+        <item name="colorText">@color/pale_lightGray</item>
+        <item name="colorText2">@color/black</item>
+        <item name="colorText3">@color/black</item>
+        <item name="colorText4">@color/lightGray</item>
+        <item name="colorTextHint">@color/gray</item>
+        <item name="colorTextHint2">@color/gray</item>
+        <item name="colorTextDate">@color/gray</item>
+        <item name="colorCardView">@color/lightGray</item>
+        <item name="colorCardView2">@color/white</item>
+        <item name="colorCardView3">#E4E3E8</item>
+        <item name="colorCardView4">@color/white</item>
+        <item name="colorCardView5">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.circleImageView2" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="Theme.Project1GroupStudyAppNew" parent="Base.Theme.Project1GroupStudyAppNew" />
+</resources>
