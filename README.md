@@ -34,9 +34,11 @@ Progress: thống kê tiến độ dự án, báo cáo kết quả.
 
 3. Hệ thống tìm kiếm các loại như group, task, file, people.
 
-4. Quản lí tài khoản, hiển thị thông tin về người dùng.
+4. Thông báo các thông tin mới về nhóm, lời mời ...
 
-5. Cập nhật giao diện hệ thống như về font, mode, ngôn ngữ
+5. Quản lí tài khoản, hiển thị thông tin về người dùng.
+
+6. Cập nhật giao diện hệ thống như về font, mode, ngôn ngữ
 
 🛠️ Công nghệ nổi bật
 
