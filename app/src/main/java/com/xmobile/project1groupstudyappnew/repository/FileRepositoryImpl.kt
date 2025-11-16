@@ -134,11 +134,8 @@ class FileRepositoryImpl @Inject constructor(
 
     override suspend fun uploadToFirebase(context: Context, file: File): Result<Boolean> = try {
         val dbRef = firebaseDatabase.getReference("files")
-        suspendCancellableCoroutine { cont ->
-            dbRef.child(file.id).setValue(file)
-                .addOnSuccessListener { cont.resume(Result.success(true)) }
-                .addOnFailureListener { e -> cont.resumeWithException(e) }
-        }
+        dbRef.child(file.id).setValue(file).await()
+        Result.success(true)
     } catch (e: Exception) {
         Result.failure(e)
     }
