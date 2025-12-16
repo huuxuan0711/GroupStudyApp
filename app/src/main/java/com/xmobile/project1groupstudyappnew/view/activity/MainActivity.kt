@@ -89,6 +89,7 @@ class MainActivity : BaseActivity() {
         val adapter = Viewpager2Adapter(this)
         binding.viewpager2.adapter = adapter
         binding.viewpager2.offscreenPageLimit = 4
+        binding.viewpager2.isUserInputEnabled = false
 
         binding.viewpager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
