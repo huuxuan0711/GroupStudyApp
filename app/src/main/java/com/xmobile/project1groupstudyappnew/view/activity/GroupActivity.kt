@@ -86,11 +86,6 @@ class GroupActivity : BaseActivity() {
             homeViewModel.markGroupAsRead(groupId)
         }
 
-        // Đánh dấu notification nếu có
-        intent.getStringExtra("notificationId")?.let {
-            notificationViewModel.readNotification(it)
-        }
-
         // Nếu group đã có sẵn thì set vào ViewModel
         group?.let {
             viewModel.setGroup(it)

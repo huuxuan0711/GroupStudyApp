@@ -50,28 +50,77 @@ class MainActivity : BaseActivity() {
 
         setUpViewPager()
         setUpBottomNavigation()
-        handleInviteFromIntent(intent)
+        handleNavigationFromIntent(intent)
         updateFirebaseToken()
     }
 
-    private fun handleInviteFromIntent(intent: Intent) {
-        val data: Uri? = intent.data
-        val inviteCodeFromUri = data?.getQueryParameter("inviteCode")
-        val inviteCodeFromExtra = intent.getStringExtra("inviteCode")
-        val notificationId = intent.getStringExtra("notificationId")
+    private fun handleNavigationFromIntent(intent: Intent) {
 
+        // 1️⃣ Mark notification as read (dùng cho mọi type)
+        val notificationId = intent.getStringExtra("notificationId")
         if (!notificationId.isNullOrEmpty()) {
             notificationViewModel.readNotification(notificationId)
         }
 
-        val inviteCode = inviteCodeFromUri ?: inviteCodeFromExtra
-        inviteCode?.let { homeViewModel.setGroupInvite(it) }
+        // 2️⃣ Lấy type
+        val type = intent.getStringExtra("type") ?: return
+
+        when (type) {
+
+            // 💌 Invite
+            "invite" -> {
+                val inviteCode =
+                    intent.getStringExtra("inviteCode")
+                        ?: intent.data?.getQueryParameter("inviteCode")
+
+                inviteCode?.let {
+                    homeViewModel.setGroupInvite(it)
+                }
+            }
+
+            // 🕒 Deadline, Task → Task detail
+            "deadline", "task" -> {
+                val taskId = intent.getStringExtra("taskId") ?: return
+                openTaskDetail(taskId)
+            }
+
+            // 📌 Message / Member / File → Group
+            "message", "member", "file" -> {
+                val groupId = intent.getStringExtra("groupId") ?: return
+                openGroup(groupId)
+            }
+
+            // 🔔 Fallback → Notification tab
+            else -> {
+                openNotificationTab()
+            }
+        }
+
+        // ❗ Tránh xử lý lại khi resume
+        intent.removeExtra("type")
+    }
+
+    private fun openNotificationTab() {
+        binding.viewpager2.currentItem = 2 // menu_noti
+    }
+
+    private fun openGroup(groupId: String) {
+        binding.viewpager2.currentItem = 0 // Home tab
+        val intent = Intent(this, GroupActivity::class.java)
+        intent.putExtra("groupId", groupId)
+        startActivity(intent)
+    }
+
+    private fun openTaskDetail(taskId: String) {
+        val intent = Intent(this, TaskDetailActivity::class.java)
+        intent.putExtra("taskId", taskId)
+        startActivity(intent)
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        handleInviteFromIntent(intent)
+        handleNavigationFromIntent(intent)
     }
 
     private fun updateFirebaseToken() {

@@ -12,6 +12,7 @@ import com.cloudinary.android.MediaManager
 import com.google.firebase.auth.FirebaseAuth
 import com.xmobile.project1groupstudyappnew.R
 import com.xmobile.project1groupstudyappnew.databinding.ActivityStartBinding
+import com.xmobile.project1groupstudyappnew.helper.PendingNavigation
 import java.util.Locale
 
 class StartActivity : BaseActivity() {
@@ -25,11 +26,56 @@ class StartActivity : BaseActivity() {
         setContentView(binding.root)
 
         initCloudinary()
-        setupButtons()
-        listenAuthState()
         createNotificationChannel()
         applyUserPreferences()
+
+        handlePushIntent(intent)
+
+        setupButtons()
+        listenAuthState()
     }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handlePushIntent(intent)
+    }
+
+    private fun handlePushIntent(intent: Intent?) {
+        if (intent == null) return
+
+        val type = intent.getStringExtra("type") ?: return
+        val notificationId = intent.getStringExtra("notificationId")
+
+        when (type) {
+
+            "task", "message", "member", "file" -> {
+                val groupId = intent.getStringExtra("groupId") ?: return
+                PendingNavigation.toGroup(
+                    groupId = groupId,
+                    notificationId = notificationId
+                )
+            }
+
+            "invite" -> {
+                val inviteCode = intent.getStringExtra("inviteCode") ?: return
+                PendingNavigation.toInvite(
+                    inviteCode = inviteCode,
+                    notificationId = notificationId
+                )
+            }
+
+            "deadline" -> {
+                val taskId = intent.getStringExtra("taskId") ?: return
+                PendingNavigation.toTask(
+                    taskId = taskId,
+                    notificationId = notificationId
+                )
+            }
+        }
+
+        intent.removeExtra("type")
+    }
+
 
     private fun initCloudinary() {
         try {
@@ -55,7 +101,11 @@ class StartActivity : BaseActivity() {
     private fun listenAuthState() {
         firebaseAuth.addAuthStateListener { auth ->
             auth.currentUser?.let {
-                startActivity(Intent(this, MainActivity::class.java))
+
+                val intent = Intent(this, MainActivity::class.java)
+                PendingNavigation.applyTo(intent)
+
+                startActivity(intent)
                 finish()
             }
         }

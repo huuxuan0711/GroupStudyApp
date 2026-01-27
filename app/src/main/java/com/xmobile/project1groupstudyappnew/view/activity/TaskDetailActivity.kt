@@ -594,10 +594,6 @@ class TaskDetailActivity : BaseActivity() {
                 isCreateTask = false
                 val taskId = intent.getStringExtra("taskId")
                 viewModel.getTaskFromId(taskId!!)
-                if (intent.hasExtra("notificationId")){
-                    val notificationId = intent.getStringExtra("notificationId")
-                     notificationViewModel.readNotification(notificationId!!)
-                }
             }else {
                 group = intent.getSerializableExtra("group", Group::class.java)
                 task = intent.getSerializableExtra("task", Task::class.java)
