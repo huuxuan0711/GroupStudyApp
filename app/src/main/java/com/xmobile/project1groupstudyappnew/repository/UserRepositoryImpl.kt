@@ -13,6 +13,7 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.CredentialManager
+import com.google.firebase.messaging.FirebaseMessaging
 
 class UserRepositoryImpl @Inject constructor(
     private val firebaseDatabase: FirebaseDatabase,
@@ -71,50 +72,48 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun logout(uid: String, context: Context): Result<Boolean> {
         return try {
             val currentUser = firebaseAuth.currentUser
+                ?: return Result.failure(Exception("Không có người dùng nào đang đăng nhập"))
 
-            // Nếu không có user nào đang đăng nhập
-            if (currentUser == null) {
-                return Result.failure(Exception("Không có người dùng nào đang đăng nhập"))
-            }
+            // 1. Xóa token khỏi DB (QUAN TRỌNG)
+            removeTokenFromDatabase(currentUser.uid)
 
-            // Lấy danh sách provider mà user đăng nhập (email/google/facebook/microsoft)
-            val providerData = currentUser.providerData
-
-            for (profile in providerData) {
+            // 2. Logout provider
+            for (profile in currentUser.providerData) {
                 when (profile.providerId) {
                     GoogleAuthProvider.PROVIDER_ID -> {
-                        // Đăng xuất khỏi Credential Manager
                         try {
                             val credentialManager = CredentialManager.create(context)
                             credentialManager.clearCredentialState(
                                 ClearCredentialStateRequest()
                             )
-                        } catch (_: Exception) { }
+                        } catch (_: Exception) {}
                     }
 
                     FacebookAuthProvider.PROVIDER_ID -> {
                         try {
                             LoginManager.getInstance().logOut()
-                        } catch (_: Exception) { }
-                    }
-
-                    "microsoft.com" -> {
-
-                    }
-
-                    EmailAuthProvider.PROVIDER_ID -> {
+                        } catch (_: Exception) {}
                     }
                 }
             }
 
-            // Logout khỏi Firebase
+            // 3. Firebase sign out
             firebaseAuth.signOut()
+            FirebaseMessaging.getInstance().deleteToken()
 
             Result.success(true)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
+
+
+    private suspend fun removeTokenFromDatabase(uid: String) {
+        val db = FirebaseDatabase.getInstance()
+            .getReference("UserTokens")
+        db.child(uid).removeValue().await()
+    }
+
 
     override suspend fun resetPassword(
         oldPassword: String,
